@@ -1,5 +1,5 @@
 
 
 <html>  
-<h1> WELCOME TO MIND CIRCUIT ; WE JUST DONT TRAIN ; WE BUILD PEOPLE; </h1> 
+<h1> WELCOME TO MIND CIRCUIT ; i am learning devops coure with my friends ; WE learn clone and  BUILD and deploy  to project; </h1> 
 </html>
