@@ -1,29 +1,27 @@
 pipeline {
-
     agent any
+
     stages {
-	
-        stage('CLONE SCM') {
+        
+        stage('clone scm') {
             steps {
-                echo 'This stage clones SC from GIT repo'				
-				git branch: 'main', url: 'https://github.com/aleedevops/mindcircuit16d.git'
+                echo 'this is source code git repo'
+                git branch: 'main', url: 'https://github.com/aleedevops/mindcircuit16d.git'
             }
         }
-		
-        stage('Build Artifact') {
+         stage('build') {
             steps {
-                echo 'This stage builds the code using maven'
-				sh 'mvn clean install'			
-				
+                echo 'this stage build code using maven'
+                sh 'mvn clean install'
             }
         }
-		
-        stage('Deploy to Tomcat') {
-            steps {
-                echo 'This stage deploys .war to tomcat webserver'
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://44.223.26.72:8090/')], contextPath: 'MC-APP', war: '**/*.war'
+            stage('deploy') {
+                steps {
+                    echo 'this stage deploy  code .war to tomcat webserver'
+                    deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'StrongPassword123', path: '', url: 'http://18.234.44.87:8080/')], contextPath: 'alee', war: '**/*.war'
+                    
+                }
             }
-        }		
-		
     }
+    
 }
